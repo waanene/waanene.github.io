@@ -102,6 +102,54 @@
         
           <section id="main">
   
+    <article id="post-Python-format的三种玩法"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/06/28/Python-format的三种玩法/">Python--format的三种玩法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/06/28/Python-format的三种玩法/" class="article-date">
+	  <time datetime="2018-06-28T08:20:43.000Z" itemprop="datePublished">六月 28, 2018</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>字符串str中的format()，用于<strong>格式化输出</strong><br>类似%s、%d</p>
+<p><strong>三种玩法：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">s = &apos;我叫&#123;&#125;，今年&#123;&#125;，爱好&#123;&#125;，再说一下我叫&#123;&#125;&apos;.format(&apos;NeNe&apos;,18,&apos;girl&apos;,&apos;NeNe&apos;)</span><br><span class="line">print(s)</span><br><span class="line"></span><br><span class="line">name = input(&apos;请输入名字：&apos;)</span><br><span class="line">s = &apos;我叫&#123;0&#125;，今年&#123;1&#125;，爱好&#123;2&#125;，再说一下我叫&#123;0&#125;&apos;.format(NeNe,18,&apos;girl&apos;)</span><br><span class="line">print(s)</span><br><span class="line"></span><br><span class="line">name = input(&apos;请输入名字：&apos;)</span><br><span class="line">age = input(&apos;请输入年龄：&apos;)</span><br><span class="line">hobby = input(&apos;请输入爱好：&apos;)</span><br><span class="line">s = &apos;我叫&#123;name&#125;，今年&#123;age&#125;，爱好&#123;hobby&#125;，再说一下我叫&#123;name&#125;&apos;.format(age=age,name=name,hobby=hobby)</span><br><span class="line">print(s)</span><br></pre></td></tr></table></figure>
+<p>来自老男孩9期day3 02视频</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-NeNe的日记"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -128,13 +176,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>总结一下：</strong></p>
-<p>首先折腾了两天 个人博客终于上线了。<br>hexo博客系统+GitHub托管<br><strong>好处</strong>：<br>静态，意味着安全，无需考虑数据库环境的部署<br>不需要数据库也就轻便了很多，只要本地写好博客推到GitHub上就可以了  也是比较稳的了<br>就是不知道以后文章多了 推送的时候不会太大导致降低效率 先用用看吧。</p>
+<p>首先折腾了两天 个人博客终于上线了。<br>hexo博客系统+GitHub托管<br><strong>好处：</strong><br>静态，意味着安全，无需考虑数据库环境的部署<br>不需要数据库也就轻便了很多，只要本地写好博客推到GitHub上就可以了  也是比较稳的了<br>就是不知道以后文章多了 推送的时候不会太大导致降低效率 先用用看吧。</p>
 <p>觉得可以再搞一个Linux服务器再搭个博客上去  同步推送两个域名 就当备用也行。<br>顺便练手hexo+server的部署过程<br>以上为YY 抽空再搞搞。<br>····································<br>另外每次git bash下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br><span class="line">#推送之后老需要手动重新填写设置里面的域名 导致十分麻烦</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">#生产静态文件</span><br></pre></td></tr></table></figure>
-<p>解决方法就是在本地网站根目录下新建一个名为‘CNAME’的文件 里面写上需要解析的域名即可，</p>
-<h2 id="然后把‘CNAME’文件复制到-“-public-”-目录下面，然后再执行-hexo-d就可以了"><a href="#然后把‘CNAME’文件复制到-“-public-”-目录下面，然后再执行-hexo-d就可以了" class="headerlink" title="然后把‘CNAME’文件复制到 “\public\” 目录下面，然后再执行$ hexo d就可以了"></a>然后把‘CNAME’文件复制到 “\public\” 目录下面，然后再执行<strong>$ hexo d</strong>就可以了</h2><p>以上为博客搭建过程中后面碰到的问题</p>
+<p><strong>解决方法就是在本地网站根目录下新建一个名为‘CNAME’的文件 里面写上需要解析的域名即可，<br>然后把‘CNAME’文件复制到 “\public\” 目录下面，然后再执行$ hexo d就可以了</strong></p>
+<p>······································<br>以上为博客搭建过程中后面碰到的问题</p>
 <p>今天从新开始看老男孩的python教程<br><strong>具体资源为：</strong><br>老男孩全栈9期 已有1-9部分<br>链接: <a href="https://pan.baidu.com/s/1_TPZasQUQgm8puZA0m-Hgw" target="_blank" rel="noopener">https://pan.baidu.com/s/1_TPZasQUQgm8puZA0m-Hgw</a> 密码: z3g1</p>
-<p>睡前看了廖雪峰的JavaScript教程<br>目测体感还不错<br>明天就继续看啦<br>看到这里过了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/00143449917624134f5c4695b524e81a581ab5a222b05ec000</span><br></pre></td></tr></table></figure></p>
+<p>睡前看了廖雪峰的JavaScript教程<br>目测体感还不错<br>明天就继续看啦<br>看到这里过了：</p>
+<p><a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/00143449917624134f5c4695b524e81a581ab5a222b05ec000" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/00143449917624134f5c4695b524e81a581ab5a222b05ec000</a></p>
 
       
     </div>
@@ -180,8 +229,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>教程中的网页功能 列如：用户交易功能<br>是在IDE中将某个单独功能 具体化成一个模块来写</p>
-<p>form xxx import xxx</p>
-<p>class Xxxx():<br>    xxx = xxx()<br>    aaa = aaa()<br>    ..<br>    …</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">form xxx import xxx</span><br><span class="line"></span><br><span class="line">class Xxxx():</span><br><span class="line">    xxx = xxx()</span><br><span class="line">    aaa = aaa()</span><br><span class="line">    ..</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
 <p>类似上面这样 的class类模块 最后将其串联调用<br>整合到相关网页中 成为当前网页的一部分功能模块 </p>
 <p>应该是这样理解吧 还不知道咋去串联调用。。。</p>
 
@@ -322,7 +370,7 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>ssh-keygen -t rsa -C “·········@qq.com”<br>ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a> # 注意邮箱地址不用改<br>git config –global user.name “········”// 你的github用户名，非昵称<br>git config –global user.email  “········@qq.com”// 填写你的github注册邮箱</p>
+        <p>git Bash 下执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;·········@qq.com&quot;</span><br><span class="line">ssh -T git@github.com # 注意邮箱地址不用改</span><br><span class="line">git config --global user.name &quot;········&quot;// 你的github用户名，非昵称</span><br><span class="line">git config --global user.email  &quot;········@qq.com&quot;// 填写你的github注册邮箱</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -448,6 +496,18 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2018/06/28/Python-format的三种玩法/">Python--format的三种玩法</a></h6>
+              <span>六月 28, 2018</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2018/06/27/NeNe的日记/">NeNe的日记</a></h6>
               <span>六月 27, 2018</span>
             </div>
@@ -502,18 +562,6 @@
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2018/06/27/热到听般禅梵唱妙音/">热到听般禅梵唱妙音</a></h6>
-              <span>六月 27, 2018</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -526,7 +574,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日记/">日记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网页收藏/">网页收藏</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计划/">计划</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置/">配置</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/闲/">闲</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日记/">日记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网页收藏/">网页收藏</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计划/">计划</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置/">配置</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/闲/">闲</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -536,7 +584,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/日记/" style="font-size: 10px;">日记</a> <a href="/tags/网页收藏/" style="font-size: 10px;">网页收藏</a> <a href="/tags/计划/" style="font-size: 20px;">计划</a> <a href="/tags/配置/" style="font-size: 10px;">配置</a> <a href="/tags/闲/" style="font-size: 10px;">闲</a>
+      <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/日记/" style="font-size: 10px;">日记</a> <a href="/tags/网页收藏/" style="font-size: 10px;">网页收藏</a> <a href="/tags/计划/" style="font-size: 20px;">计划</a> <a href="/tags/配置/" style="font-size: 10px;">配置</a> <a href="/tags/闲/" style="font-size: 10px;">闲</a>
     </div>
   </div>
 
@@ -546,7 +594,7 @@
     <h3 class="widget-title">归档</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">7</span></li></ul>
     </div>
   </div>
 
