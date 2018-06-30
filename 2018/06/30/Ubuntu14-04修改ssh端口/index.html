@@ -3,26 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Ubuntu下virtualenv 的安装及使用 | 哇啊NeNe&#39;s blog</title>
+  <title> Ubuntu14.04修改ssh端口 | 哇啊NeNe&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="配置ubuntulinux" />
   
   
   
-  
-  <meta name="description" content="首先，用pip安装virtualenv：1$ pip3 install virtualenv 然后，假定要开发一个新的项目，需要一套独立的Python运行环境，可以这么做： 第一步，创建目录： 12$ mkdir myproject$ cd myproject/ 第二步，创建一个独立的Python运行环境，命名为webpy3： 1234$ virtualenv --no-site-packages">
-<meta name="keywords" content="配置,ubuntu,linux">
+  <meta name="description" content="Linux中SSH默认端口为22，为了安全考虑，我们有必要对22端口进行修改，现修改端口为60000；修改方法如下：在/etc/ssh/sshd_config中找到Port 22，将其修改为60000,或使用/usr/sbin/sshd -p 60000指定端口。 如果用户想让22和60000端口同时开放，只需在/etc/ssh/sshd_config增加一行内容如下：12345[root@loc">
+<meta name="keywords" content="web前端">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu下virtualenv 的安装及使用">
-<meta property="og:url" content="http://mcer.win/2018/06/28/Ubuntu下virtualenv-的安装及使用/index.html">
+<meta property="og:title" content=" Ubuntu14.04修改ssh端口">
+<meta property="og:url" content="http://mcer.win/2018/06/30/Ubuntu14-04修改ssh端口/index.html">
 <meta property="og:site_name" content="哇啊NeNe&#39;s blog">
-<meta property="og:description" content="首先，用pip安装virtualenv：1$ pip3 install virtualenv 然后，假定要开发一个新的项目，需要一套独立的Python运行环境，可以这么做： 第一步，创建目录： 12$ mkdir myproject$ cd myproject/ 第二步，创建一个独立的Python运行环境，命名为webpy3： 1234$ virtualenv --no-site-packages">
+<meta property="og:description" content="Linux中SSH默认端口为22，为了安全考虑，我们有必要对22端口进行修改，现修改端口为60000；修改方法如下：在/etc/ssh/sshd_config中找到Port 22，将其修改为60000,或使用/usr/sbin/sshd -p 60000指定端口。 如果用户想让22和60000端口同时开放，只需在/etc/ssh/sshd_config增加一行内容如下：12345[root@loc">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-28T15:45:53.956Z">
+<meta property="og:updated_time" content="2018-06-30T10:21:43.799Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu下virtualenv 的安装及使用">
-<meta name="twitter:description" content="首先，用pip安装virtualenv：1$ pip3 install virtualenv 然后，假定要开发一个新的项目，需要一套独立的Python运行环境，可以这么做： 第一步，创建目录： 12$ mkdir myproject$ cd myproject/ 第二步，创建一个独立的Python运行环境，命名为webpy3： 1234$ virtualenv --no-site-packages">
+<meta name="twitter:title" content=" Ubuntu14.04修改ssh端口">
+<meta name="twitter:description" content="Linux中SSH默认端口为22，为了安全考虑，我们有必要对22端口进行修改，现修改端口为60000；修改方法如下：在/etc/ssh/sshd_config中找到Port 22，将其修改为60000,或使用/usr/sbin/sshd -p 60000指定端口。 如果用户想让22和60000端口同时开放，只需在/etc/ssh/sshd_config增加一行内容如下：12345[root@loc">
   
     <link rel="alternate" href="/atom.xml" title="哇啊NeNe&#39;s blog" type="application/atom+xml">
   
@@ -103,7 +101,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-Ubuntu下virtualenv-的安装及使用" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-Ubuntu14-04修改ssh端口" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -111,7 +109,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      Ubuntu下virtualenv 的安装及使用
+       Ubuntu14.04修改ssh端口
     </h1>
   
 
@@ -119,8 +117,8 @@
     
     <div class="article-meta">
       
-	<a href="/2018/06/28/Ubuntu下virtualenv-的安装及使用/" class="article-date">
-	  <time datetime="2018-06-28T15:19:50.000Z" itemprop="datePublished">六月 28, 2018</time>
+	<a href="/2018/06/30/Ubuntu14-04修改ssh端口/" class="article-date">
+	  <time datetime="2018-06-30T10:16:24.000Z" itemprop="datePublished">六月 30, 2018</time>
 	</a>
 
        
@@ -132,31 +130,20 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>首先，用pip安装virtualenv：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip3 install virtualenv</span><br></pre></td></tr></table></figure></p>
-<p>然后，假定要开发一个新的项目，需要一套独立的Python运行环境，可以这么做：</p>
-<p>第一步，创建目录：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir myproject</span><br><span class="line">$ cd myproject/</span><br></pre></td></tr></table></figure>
-<p>第二步，创建一个独立的Python运行环境，命名为webpy3：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ virtualenv --no-site-packages webpy3</span><br><span class="line">undefined</span><br><span class="line"></span><br><span class="line">Installing setuptools, pip, wheel...done.</span><br></pre></td></tr></table></figure>
-<p>命令virtualenv就可以创建一个独立的Python运行环境，我们还加上了参数–no-site-packages，这样，已经安装到系统Python环境中的所有第三方包都不会复制过来，这样，我们就得到了一个不带任何第三方包的“干净”的Python运行环境。</p>
-<p>新建的Python环境被放到当前目录下的webpy3目录。有了webpy3这个Python环境，可以用source进入该环境：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd webpy3/bin/</span><br><span class="line">~/webpy3/bin# source activate</span><br><span class="line">(webpy3) root@MyCloudServer:~/myproject/webpy3/bin#</span><br></pre></td></tr></table></figure></p>
-<p>退出当前的webpy3环境，使用deactivate命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(webpy3) root@MyCloudServer:~/myproject/webpy3/bin# deactivate</span><br><span class="line">root@MyCloudServer:~/myproject/webpy3/bin#</span><br></pre></td></tr></table></figure>
+        <p>Linux中SSH默认端口为22，为了安全考虑，我们有必要对22端口进行修改，现修改端口为60000；修改方法如下：<br>在/etc/ssh/sshd_config中找到Port 22，将其修改为60000,或使用/usr/sbin/sshd -p 60000指定端口。</p>
+<p>如果用户想让22和60000端口同时开放，只需在/etc/ssh/sshd_config增加一行内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost /]# vi /etc/ssh/sshd_config</span><br><span class="line">Port 22</span><br><span class="line">Port 60000</span><br><span class="line">保存并退出</span><br><span class="line">[root@localhost /]#service ssh restart</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="entry-meta entry-footer">
       
       
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/配置/">配置</a></li></ul>
-
       
         
 	<div id="comment">
 	
 	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/2018/06/28/Ubuntu下virtualenv-的安装及使用/" data-title="Ubuntu下virtualenv 的安装及使用" data-url="http://mcer.win/2018/06/28/Ubuntu下virtualenv-的安装及使用/"></div>
+	 <div class="ds-thread" data-thread-key="/2018/06/30/Ubuntu14-04修改ssh端口/" data-title=" Ubuntu14.04修改ssh端口" data-url="http://mcer.win/2018/06/30/Ubuntu14-04修改ssh端口/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -184,19 +171,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/06/28/ubuntu14-04-下安装mysql/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          ubuntu14.04 下安装mysql
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/06/28/Ubuntu14-04上安装pip的方法/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/06/28/开博第二天小日记/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">Ubuntu14.04上安装pip的方法</div>
+      <div class="article-nav-title">开博第二天小日记</div>
     </a>
   
 </nav>
