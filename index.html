@@ -102,7 +102,7 @@
         
           <section id="main">
   
-    <article id="post-Python装饰器函数"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Python装饰器函数初识"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -110,7 +110,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/07/04/Python装饰器函数/">Python装饰器函数</a>
+      <a class="article-title" href="/2018/07/04/Python装饰器函数初识/">Python装饰器函数初识</a>
     </h1>
   
 
@@ -118,7 +118,7 @@
     
     <div class="article-meta">
       
-	<a href="/2018/07/04/Python装饰器函数/" class="article-date">
+	<a href="/2018/07/04/Python装饰器函数初识/" class="article-date">
 	  <time datetime="2018-07-04T04:19:14.000Z" itemprop="datePublished">七月 4, 2018</time>
 	</a>
 
@@ -127,12 +127,12 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>装饰器的形成过程：最简单的装饰器—有返回值的—有一个参数的—万能参数<br>装饰器语法糖：@装饰器函数名 等价于 func = wrapper(func)</p>
+        <p>装饰器的形成过程：最简单的装饰器—有返回值的—有一个参数的—万能参数<br>装饰器语法糖：@装饰器函数名 等价于 func = wrapper(func)<br>装饰器的本质：闭包函数<br>开发原则：开放封闭原则<br>    开放：对扩展是开放的<br>    封闭：对修改是封闭的</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line">@timer                      #语法糖 @装饰器函数名</span><br><span class="line">def func(a):                 #被装饰的函数</span><br><span class="line">    time.sleep(0.1)             #让程序在执行到这个文职的时候停一会儿对应的时间</span><br><span class="line">    print(&apos;oheihei&quot;,a)</span><br><span class="line">    return &apos;ehehe&apos;</span><br><span class="line"></span><br><span class="line">def timer(f):                   #装饰器函数</span><br><span class="line">    def run_time(*args,**kwargs):</span><br><span class="line">        start = time.time()     #开始时获取当前时间</span><br><span class="line">        ret = f(*args,**kwargs)                     #赋值被装饰的函数的返回值 </span><br><span class="line">        end = time.time()       #结束时获取当前时间</span><br><span class="line">        print(end - start)</span><br><span class="line">        return ret</span><br><span class="line">    return run_time             #注意函数名不能加括号()，不然报错</span><br><span class="line"></span><br><span class="line">@timer                      #语法糖 @装饰器函数名</span><br><span class="line">def func1(a,b):                 #被装饰的函数</span><br><span class="line">    time.sleep(0.1)             #让程序在执行到这个文职的时候停一会儿对应的时间</span><br><span class="line">    print(&apos;oheihei&quot;,a,b)</span><br><span class="line">    return &apos;ehehe&apos;</span><br><span class="line">#func = timer(func)       #上方语法糖的作用就是等同于此处代码   PS1</span><br><span class="line">ret = func(1,2,)                #run_time()</span><br><span class="line">ret = func(1,b=3)</span><br><span class="line">print(ret)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>装饰器的作用 — 不想修改函数的调用方式 但是还想在原来的函数前后添加功能<br>timer就是一个装饰器函数，只是对一个函数 有一些装饰作用</p>
-<p>原则：开放封闭原则<br>    开放：对扩展是开放的<br>    封闭：对修改是封闭的</p>
 <p>装饰器的固定形式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def wrapper(f):                   #装饰器函数,f是被装饰的函数名，由上方&apos;PS1&apos;处解释关联关系</span><br><span class="line">    def run_time(*args,**kwargs):</span><br><span class="line">        &quot;&quot;&quot;在被装饰函数之前要做的事情&quot;&quot;&quot;</span><br><span class="line">        ret = f(*args,**kwargs)                     #赋值被装饰的函数的返回值 </span><br><span class="line">        &quot;&quot;&quot;在被装饰函数之后要做的事情&quot;&quot;&quot;</span><br><span class="line">        return ret</span><br><span class="line">    return run_time             #注意函数名不能加括号()，不然报错</span><br><span class="line"></span><br><span class="line">@wrapper                          #语法糖 @装饰器函数名</span><br><span class="line">def func1(a,b):                 #被装饰的函数</span><br><span class="line">    time.sleep(0.1)             #让程序在执行到这个文职的时候停一会儿对应的时间</span><br><span class="line">    print(&apos;oheihei&quot;,a,b)</span><br><span class="line">    return &apos;ehehe&apos;</span><br></pre></td></tr></table></figure></p>
 <p>固定模式默写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def wrapper(func):  #whoami</span><br><span class="line">    def inner(*args,**kwargs):</span><br><span class="line">        ret = func(*args,**kwargs)      #被装饰的函数</span><br><span class="line">        return ret</span><br><span class="line">    return inner</span><br><span class="line"></span><br><span class="line">@wrapper    #whoami = wrapper(whoami)</span><br><span class="line">def whoami():</span><br><span class="line">    print(&quot;admin&quot;)</span><br><span class="line"></span><br><span class="line">ret = whoami()    #inner</span><br></pre></td></tr></table></figure></p>
+<p>Oldboy 9s day11</p>
 
       
     </div>
@@ -661,7 +661,7 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
-              <h6 style="margin: 0;"><a href="/2018/07/04/Python装饰器函数/">Python装饰器函数</a></h6>
+              <h6 style="margin: 0;"><a href="/2018/07/04/Python装饰器函数初识/">Python装饰器函数初识</a></h6>
               <span>七月 4, 2018</span>
             </div>
 
