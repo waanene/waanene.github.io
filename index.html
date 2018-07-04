@@ -173,8 +173,9 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>生成器<br>工作原理：边生成数据边处理数据 即内存占用小<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def ddos():</span><br><span class="line">    for i in range(20000):</span><br><span class="line">        yield &quot;DDOS数量：%s&quot;%i</span><br><span class="line"></span><br><span class="line">g = ddos()</span><br><span class="line">for i in g:</span><br><span class="line">    print(i)</span><br><span class="line">print(g.__next__())     #单步生成</span><br></pre></td></tr></table></figure></p>
-<p>函数中有yield 关键字的函数就是生成器函数<br>通过调用赋值给g  表示g获得了一个生成器 可重复获得新的g生成器<br>通过for循环i 来条用生辰器函数</p>
+        <p>生成器<br>工作原理：边生成数据边处理数据 即内存占用小</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def ddos():</span><br><span class="line">    for i in range(20000):</span><br><span class="line">        yield &quot;DDOS数量：%s&quot;%i</span><br><span class="line"></span><br><span class="line">g = ddos()</span><br><span class="line">for i in g:</span><br><span class="line">    print(i)</span><br><span class="line">print(g.__next__())     #单步生成</span><br></pre></td></tr></table></figure>
+<p>函数中有yield 关键字的函数就是生成器函数<br>通过调用赋值给g  表示g获得了一个生成器 可重复获得新的g生成器<br>通过for循环i 来调用生辰器函数</p>
 
       
     </div>
