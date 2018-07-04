@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="哇啊NeNe&#39;s blog">
 <meta property="og:description" content="装饰器的形成过程：最简单的装饰器—有返回值的—有一个参数的—万能参数装饰器语法糖：@装饰器函数名 等价于 func = wrapper(func)装饰器的本质：闭包函数开发原则：开放封闭原则    开放：对扩展是开放的    封闭：对修改是封闭的 1234567891011121314151617181920212223242526import time@timer">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-04T09:13:20.144Z">
+<meta property="og:updated_time" content="2018-07-04T11:36:57.879Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python装饰器函数初识">
 <meta name="twitter:description" content="装饰器的形成过程：最简单的装饰器—有返回值的—有一个参数的—万能参数装饰器语法糖：@装饰器函数名 等价于 func = wrapper(func)装饰器的本质：闭包函数开发原则：开放封闭原则    开放：对扩展是开放的    封闭：对修改是封闭的 1234567891011121314151617181920212223242526import time@timer">
@@ -143,6 +143,7 @@
 <hr>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">添加装饰器函数后的调用：</span><br><span class="line"></span><br><span class="line">         参数x                参数x</span><br><span class="line">    ===========&gt;          ===========&gt;</span><br><span class="line">用户             装饰器函数b             函数a</span><br><span class="line">    &lt;===========          &lt;=========== </span><br><span class="line">        返回值r               返回值r</span><br></pre></td></tr></table></figure>
 <hr>
+<p><strong>传参的*args 现象解释：</strong><br>接收就聚合<br>调用就打散</p>
 <p>Oldboy 9s day11</p>
 
       
@@ -185,6 +186,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2018/07/04/Python生成器初识/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Python生成器初识
+        
+      </div>
+    </a>
   
   
     <a href="/2018/07/03/Python之闭包/" id="article-nav-older" class="article-nav-link-wrap">
