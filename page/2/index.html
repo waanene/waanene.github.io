@@ -102,6 +102,102 @@
         
           <section id="main">
   
+    <article id="post-开博第二天小日记"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/06/28/开博第二天小日记/">开博第二天小日记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/06/28/开博第二天小日记/" class="article-date">
+	  <time datetime="2018-06-28T15:47:20.000Z" itemprop="datePublished">六月 28, 2018</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>老男孩9s看到day3<br>明天继续看day4</p>
+<p>JavaScript看到这里了<br><a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001434499190108eec0bdf14e704a09935cd112e501e31a000#0" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001434499190108eec0bdf14e704a09935cd112e501e31a000#0</a></p>
+<p>然后晚上Ubuntu14.0服务器上线了 环境还需要慢慢配置<br>python虚拟环境已经配置好了<br>MySQL-server装好了没配置完 只能本地访问 抽空弄外连</p>
+<p>睡觉睡觉 狗命要紧  </p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日记/">日记</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Ubuntu14-04-下安装mysql"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/06/28/Ubuntu14-04-下安装mysql/">ubuntu14.04 下安装mysql</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/06/28/Ubuntu14-04-下安装mysql/" class="article-date">
+	  <time datetime="2018-06-28T15:39:38.000Z" itemprop="datePublished">六月 28, 2018</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server</span><br></pre></td></tr></table></figure></p>
+<p>2.测试是否安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps aux |grep mysql</span><br><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure></p>
+<p>3.允许远程访问设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># sudo service mysql stop</span><br><span class="line"></span><br><span class="line"># sudo vim /etc/mysql/my.conf</span><br><span class="line"></span><br><span class="line"># #注释 bind_address=127.0.0.1</span><br><span class="line"></span><br><span class="line"># 重启mysql：　sudo service mysql restart</span><br><span class="line"></span><br><span class="line"># 登录mysql：  mysql -u rot -p</span><br><span class="line"></span><br><span class="line"># 切换数据库 use mysql;</span><br><span class="line"></span><br><span class="line"># 允许现有用户的远程访问 update user set host=&apos;%&apos; where user=&apos;root&apos; and host =&apos;localhost&apos;;</span><br><span class="line"></span><br><span class="line"># 退出数据库，重启数据库 exit; sudo service mysql restart;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>4.数据库文件的迁移<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># sudo service mysql stop #迁移前必须停止mysql</span><br><span class="line"></span><br><span class="line"># 创建mysql 存放的目标文件夹 sudo /mnt/mysqldata</span><br><span class="line"></span><br><span class="line"># 修改所属用户和用户组  sudo chown -R mysql:mysql /mnt/mysqldata</span><br><span class="line"></span><br><span class="line"># 修改权限 sudo chmod -R 700 /mnt/mysqldata</span><br><span class="line"></span><br><span class="line"># 迁移文件 su root; cp -a /var/lib/mysql/* /mnt/mysqldata/</span><br><span class="line"></span><br><span class="line"># 修改配置文件 sudo vim /etc/mysql/my.conf</span><br><span class="line"></span><br><span class="line"># 　　　　　　　datadir = /mnt/mysqldata</span><br><span class="line"></span><br><span class="line"># 以上mysql 配置完毕，在ubuntu还有些敏感操作受到了 apparmor.d 的限制，mysql也受到了限制，</span><br><span class="line"></span><br><span class="line"># sudo vim /etc/apparmor.d/usr.sbin.mysqld</span><br><span class="line">···············</span><br><span class="line"># /var/lib/mysql/ r, </span><br><span class="line"># /var/lib/mysql/** rwk,</span><br><span class="line">···············</span><br><span class="line"># 重新启动apparmor 和mysql</span><br><span class="line"></span><br><span class="line"># sudo service apparmor reload</span><br><span class="line"></span><br><span class="line"># sudo service mysql start</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/配置/">配置</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-Ubuntu下virtualenv-的安装及使用"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -494,55 +590,11 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-热到听般禅梵唱妙音"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/06/27/热到听般禅梵唱妙音/">热到听般禅梵唱妙音</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2018/06/27/热到听般禅梵唱妙音/" class="article-date">
-	  <time datetime="2018-06-27T04:03:38.000Z" itemprop="datePublished">六月 27, 2018</time>
-	</a>
-
-       
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=32924110&auto=0&height=66"></iframe>
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/闲/">闲</a></li></ul>
-
-      
-    </footer>
-    <hr class="entry-footer-hr">
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
   </nav>
 
 </section>
@@ -605,6 +657,30 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2018/07/06/Python生成器函数之移动平均值/">Python生成器函数之移动平均值</a></h6>
+              <span>七月 6, 2018</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
+              <h6 style="margin: 0;"><a href="/2018/07/06/PytPython迭代器初识/">PytPython迭代器和生成器初识</a></h6>
+              <span>七月 6, 2018</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2018/07/05/Python装饰器之反向‘QA’/">Python装饰器之反向&#39;QA&#39;</a></h6>
               <span>七月 5, 2018</span>
             </div>
@@ -647,30 +723,6 @@
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2018/07/04/Python装饰器函数初识/">Python装饰器函数初识</a></h6>
-              <span>七月 4, 2018</span>
-            </div>
-
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2018/07/03/Python之闭包/">Python之闭包</a></h6>
-              <span>七月 3, 2018</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -683,7 +735,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rust/">Rust</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web前端/">web前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日记/">日记</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网页收藏/">网页收藏</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计划/">计划</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置/">配置</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/闲/">闲</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rust/">Rust</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web前端/">web前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日记/">日记</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网页收藏/">网页收藏</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计划/">计划</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置/">配置</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/闲/">闲</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -693,7 +745,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/ubuntu/" style="font-size: 13.33px;">ubuntu</a> <a href="/tags/web前端/" style="font-size: 10px;">web前端</a> <a href="/tags/日记/" style="font-size: 13.33px;">日记</a> <a href="/tags/网页收藏/" style="font-size: 13.33px;">网页收藏</a> <a href="/tags/计划/" style="font-size: 13.33px;">计划</a> <a href="/tags/配置/" style="font-size: 16.67px;">配置</a> <a href="/tags/闲/" style="font-size: 10px;">闲</a>
+      <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/Ubuntu/" style="font-size: 13.33px;">Ubuntu</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/web前端/" style="font-size: 10px;">web前端</a> <a href="/tags/日记/" style="font-size: 13.33px;">日记</a> <a href="/tags/网页收藏/" style="font-size: 13.33px;">网页收藏</a> <a href="/tags/计划/" style="font-size: 13.33px;">计划</a> <a href="/tags/配置/" style="font-size: 16.67px;">配置</a> <a href="/tags/闲/" style="font-size: 10px;">闲</a>
     </div>
   </div>
 
@@ -703,7 +755,7 @@
     <h3 class="widget-title">归档</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">12</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">12</span></li></ul>
     </div>
   </div>
 
