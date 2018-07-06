@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>列表推导式and生成器表达式 | 哇啊NeNe&#39;s blog</title>
+  <title>Python之for循环套生成器表达式 | 哇啊NeNe&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="Python" />
@@ -11,18 +11,18 @@
   
   
   
-  <meta name="description" content="列表推导式1print([i for i in range(10)]) 生成器表达式1234g = (i for i in range(10)print(g)for i in g:    print(i) 两种表达式的区别：    1、’[]’与’()’不同    2、返回的值不一样 —生成器表达式不占内存 总结 两个公式 作用有限 语法 [每个元素或者是和元素相关的操作 for 元素 in 可迭">
+  <meta name="description" content="12345678910111213def add(x,y):    return x+ydef text():    for i in range(4):        yield ig = text()          #生成器for x in [1, 10, 15]    g = (add(x,y) for y in g)print(list(g)) 12345678910111213141">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="列表推导式and生成器表达式">
-<meta property="og:url" content="http://mcer.win/2018/07/06/列表推导式and生成器表达式/index.html">
+<meta property="og:title" content="Python之for循环套生成器表达式">
+<meta property="og:url" content="http://mcer.win/2018/07/06/Python之for循环套生成器表达式/index.html">
 <meta property="og:site_name" content="哇啊NeNe&#39;s blog">
-<meta property="og:description" content="列表推导式1print([i for i in range(10)]) 生成器表达式1234g = (i for i in range(10)print(g)for i in g:    print(i) 两种表达式的区别：    1、’[]’与’()’不同    2、返回的值不一样 —生成器表达式不占内存 总结 两个公式 作用有限 语法 [每个元素或者是和元素相关的操作 for 元素 in 可迭">
+<meta property="og:description" content="12345678910111213def add(x,y):    return x+ydef text():    for i in range(4):        yield ig = text()          #生成器for x in [1, 10, 15]    g = (add(x,y) for y in g)print(list(g)) 12345678910111213141">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-06T14:06:19.838Z">
+<meta property="og:updated_time" content="2018-07-06T15:14:50.503Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="列表推导式and生成器表达式">
-<meta name="twitter:description" content="列表推导式1print([i for i in range(10)]) 生成器表达式1234g = (i for i in range(10)print(g)for i in g:    print(i) 两种表达式的区别：    1、’[]’与’()’不同    2、返回的值不一样 —生成器表达式不占内存 总结 两个公式 作用有限 语法 [每个元素或者是和元素相关的操作 for 元素 in 可迭">
+<meta name="twitter:title" content="Python之for循环套生成器表达式">
+<meta name="twitter:description" content="12345678910111213def add(x,y):    return x+ydef text():    for i in range(4):        yield ig = text()          #生成器for x in [1, 10, 15]    g = (add(x,y) for y in g)print(list(g)) 12345678910111213141">
   
     <link rel="alternate" href="/atom.xml" title="哇啊NeNe&#39;s blog" type="application/atom+xml">
   
@@ -103,7 +103,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-列表推导式and生成器表达式" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-Python之for循环套生成器表达式" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -111,7 +111,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      列表推导式and生成器表达式
+      Python之for循环套生成器表达式
     </h1>
   
 
@@ -119,8 +119,8 @@
     
     <div class="article-meta">
       
-	<a href="/2018/07/06/列表推导式and生成器表达式/" class="article-date">
-	  <time datetime="2018-07-06T12:54:38.000Z" itemprop="datePublished">七月 6, 2018</time>
+	<a href="/2018/07/06/Python之for循环套生成器表达式/" class="article-date">
+	  <time datetime="2018-07-06T15:03:33.000Z" itemprop="datePublished">七月 6, 2018</time>
 	</a>
 
        
@@ -132,16 +132,9 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>列表推导式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print([i for i in range(10)])</span><br></pre></td></tr></table></figure></p>
-<p>生成器表达式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">g = (i for i in range(10)</span><br><span class="line">print(g)</span><br><span class="line">for i in g:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure></p>
-<p>两种表达式的区别：<br>    1、’[]’与’()’不同<br>    2、返回的值不一样 —生成器表达式不占内存</p>
-<h2 id="总结-两个公式-作用有限"><a href="#总结-两个公式-作用有限" class="headerlink" title="总结 两个公式 作用有限 "></a>总结 两个公式 作用有限 </h2><p><strong>语法</strong></p>
-<p>[每个元素或者是和元素相关的操作 for 元素 in 可迭代数据类型]         #遍历之后挨个处理<br>[满足条件的元素相关的操作 for 元素 in 可迭代数据类型 if 元素相关的条件] #筛选功能<br>栗子：<br>列出30以内能被3整除的数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ret = [i for i in range(30) if i%3 == 0]</span><br><span class="line">print(ret)</span><br></pre></td></tr></table></figure></p>
-<p>列出30以内能被3整除的数的平方<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ret = [i*i for i in range(30) if i%3 == 0]</span><br><span class="line">print(ret)</span><br></pre></td></tr></table></figure></p>
-<p>嵌套列表遍历<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mingdan = [[1231],[23211]]</span><br><span class="line">ret = [name for lis in mingdan for name in lis if name.count(&apos;1&apos;) == 2]</span><br><span class="line">print(ret)</span><br></pre></td></tr></table></figure></p>
-<p>字典推导式<br>将一个字典的key和value对调<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dic1 = &#123;&apos;a&apos;: 10, &apos;b&apos;= 2&#125;</span><br><span class="line">#&#123;10:&apos;a&apos;, 2:&apos;b&apos;&#125; </span><br><span class="line">new_dic = &#123;dic1[k]:k for k in dic1&#125;</span><br><span class="line">print(new_dic)</span><br></pre></td></tr></table></figure></p>
-<p>集合推导式，自带结果去重功能<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">squared = &#123;x**2 for x in [1, -1 ,2 , -2]&#125;</span><br><span class="line">print(squared)</span><br><span class="line"> </span><br></pre></td></tr></table></figure></p>
-<p>生成器&amp;迭代器的多属于惰性运算，且从头到尾只取一次值（生成器中的数据只能取一次，取完就没有了）<br> Oldboy 9s day14</p>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def add(x,y):</span><br><span class="line">    return x+y</span><br><span class="line"></span><br><span class="line">def text():</span><br><span class="line">    for i in range(4):</span><br><span class="line">        yield i</span><br><span class="line"></span><br><span class="line">g = text()          #生成器</span><br><span class="line"></span><br><span class="line">for x in [1, 10, 15]</span><br><span class="line">    g = (add(x,y) for y in g)</span><br><span class="line"></span><br><span class="line">print(list(g))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line">g = text()          #生成器</span><br><span class="line">for x in [1, 10, 15]</span><br><span class="line">    g = (add(x,y) for y in g)</span><br><span class="line">#----------------------------------------</span><br><span class="line">x = 1</span><br><span class="line">g = (add(x,y) for y in g)</span><br><span class="line">x = 10</span><br><span class="line">g = (add(x,y) for y in (add(x,y) for y in g))</span><br><span class="line">x = 15</span><br><span class="line">g = (add(x,y) for y in (add(x,y) for y in (add(x,y) for y in text())))</span><br><span class="line">#---------此间为过程 拆开看即可-----------</span><br><span class="line">print(list(g))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>只要遇见 for循环套生成器表达式的就拆开理解</strong></p>
 
       
     </div>
@@ -156,7 +149,7 @@
 	<div id="comment">
 	
 	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/2018/07/06/列表推导式and生成器表达式/" data-title="列表推导式and生成器表达式" data-url="http://mcer.win/2018/07/06/列表推导式and生成器表达式/"></div>
+	 <div class="ds-thread" data-thread-key="/2018/07/06/Python之for循环套生成器表达式/" data-title="Python之for循环套生成器表达式" data-url="http://mcer.win/2018/07/06/Python之for循环套生成器表达式/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -184,19 +177,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/07/06/Python之for循环套生成器表达式/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          Python之for循环套生成器表达式
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/07/06/Demon哥分享整理2017-2018/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/07/06/列表推导式and生成器表达式/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">Demon哥分享整理2017-2018</div>
+      <div class="article-nav-title">列表推导式and生成器表达式</div>
     </a>
   
 </nav>
@@ -210,7 +194,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
     
-      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#总结-两个公式-作用有限"><span class="nav-number">1.</span> <span class="nav-text">总结 两个公式 作用有限 </span></a></li></ol>
+      <ol class="nav">无</ol>
     
     </div>
   </aside>
