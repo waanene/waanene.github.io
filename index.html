@@ -102,6 +102,54 @@
         
           <section id="main">
   
+    <article id="post-迅雷U享版ThunderVIP-破解补丁"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/07/07/迅雷U享版ThunderVIP-破解补丁/">迅雷U享版ThunderVIP(破解补丁)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/07/07/迅雷U享版ThunderVIP-破解补丁/" class="article-date">
+	  <time datetime="2018-07-07T08:20:36.000Z" itemprop="datePublished">七月 7, 2018</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>迅雷U享版破解补丁<br>呵呵哒 分享一波</p>
+<p>客户端去迅雷官网下载就行了<br>然后破解过程：<br>照着食用说明食用即可</p>
+<p>链接: <a href="https://pan.baidu.com/s/1SmZSn2HdAqJKfEUuKu7MQA" target="_blank" rel="noopener">https://pan.baidu.com/s/1SmZSn2HdAqJKfEUuKu7MQA</a> 密码: isrc</p>
+<p>本资源来自网络搜集 </p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-Python之for循环套生成器表达式"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -232,7 +280,7 @@
 
           
             <div class="entry-thumbnail">
-              <a href="/2018/07/06/Demon哥分享整理2017-2018/"><img src="http://lorempixel.com/750/450/city/3" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+              <a href="/2018/07/06/Demon哥分享整理2017-2018/"><img src="http://lorempixel.com/750/450/city/2" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
             </div>
           
           <div class="entry-summary">
@@ -549,63 +597,6 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-Python装饰器函数初识"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/07/04/Python装饰器函数初识/">Python装饰器函数初识</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2018/07/04/Python装饰器函数初识/" class="article-date">
-	  <time datetime="2018-07-04T04:19:14.000Z" itemprop="datePublished">七月 4, 2018</time>
-	</a>
-
-       
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>装饰器的形成过程：最简单的装饰器—有返回值的—有一个参数的—万能参数<br>装饰器语法糖：@装饰器函数名 等价于 func = wrapper(func)<br>装饰器的本质：闭包函数<br>开发原则：开放封闭原则<br>    开放：对扩展是开放的<br>    封闭：对修改是封闭的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line">@timer                      #语法糖 @装饰器函数名</span><br><span class="line">def func(a):                 #被装饰的函数</span><br><span class="line">    time.sleep(0.1)             #让程序在执行到这个文职的时候停一会儿对应的时间</span><br><span class="line">    print(&apos;oheihei&quot;,a)</span><br><span class="line">    return &apos;ehehe&apos;</span><br><span class="line"></span><br><span class="line">def timer(f):                   #装饰器函数</span><br><span class="line">    def run_time(*args,**kwargs):</span><br><span class="line">        start = time.time()     #开始时获取当前时间</span><br><span class="line">        ret = f(*args,**kwargs)                     #赋值被装饰的函数的返回值 </span><br><span class="line">        end = time.time()       #结束时获取当前时间</span><br><span class="line">        print(end - start)</span><br><span class="line">        return ret</span><br><span class="line">    return run_time             #注意函数名不能加括号()，不然报错</span><br><span class="line"></span><br><span class="line">@timer                      #语法糖 @装饰器函数名</span><br><span class="line">def func1(a,b):                 #被装饰的函数</span><br><span class="line">    time.sleep(0.1)             #让程序在执行到这个文职的时候停一会儿对应的时间</span><br><span class="line">    print(&apos;oheihei&quot;,a,b)</span><br><span class="line">    return &apos;ehehe&apos;</span><br><span class="line">#func = timer(func)       #上方语法糖的作用就是等同于此处代码   PS1</span><br><span class="line">ret = func(1,2,)                #run_time()</span><br><span class="line">ret = func(1,b=3)</span><br><span class="line">print(ret)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>装饰器的作用 — 不想修改函数的调用方式 但是还想在原来的函数前后添加功能<br>timer就是一个装饰器函数，只是对一个函数 有一些装饰作用</p>
-<p>装饰器的固定形式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def wrapper(f):                   #装饰器函数,f是被装饰的函数名，由上方&apos;PS1&apos;处解释关联关系</span><br><span class="line">    def run_time(*args,**kwargs):</span><br><span class="line">        print(&quot;在被装饰函数之前要做的事情&quot;)</span><br><span class="line">        ret = f(*args,**kwargs)                     #赋值被装饰的函数的返回值 </span><br><span class="line">        print(&quot;在被装饰函数之后要做的事情&quot;)</span><br><span class="line">        return ret</span><br><span class="line">    return run_time             #注意函数名不能加括号()，不然报错</span><br><span class="line"></span><br><span class="line">@wrapper                          #语法糖 @装饰器函数名</span><br><span class="line">def func1(a,b):                 #被装饰的函数</span><br><span class="line">    time.sleep(0.1)             #让程序在执行到这个文职的时候停一会儿对应的时间</span><br><span class="line">    print(&apos;oheihei&quot;,a,b)</span><br><span class="line">    return &apos;ehehe&apos;</span><br></pre></td></tr></table></figure></p>
-<p>固定模式默写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def wrapper(func):  #whoami</span><br><span class="line">    def inner(*args,**kwargs):</span><br><span class="line">        ret = func(*args,**kwargs)      #被装饰的函数</span><br><span class="line">        return ret</span><br><span class="line">    return inner</span><br><span class="line"></span><br><span class="line">@wrapper    #whoami = wrapper(whoami)</span><br><span class="line">def whoami():</span><br><span class="line">    print(&quot;admin&quot;)</span><br><span class="line"></span><br><span class="line">ret = whoami()    #inner</span><br></pre></td></tr></table></figure>
-<hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">正常参数调用：</span><br><span class="line">         参数x</span><br><span class="line">    ===========&gt;</span><br><span class="line">用户             函数a</span><br><span class="line">    &lt;===========</span><br><span class="line">        返回值r</span><br></pre></td></tr></table></figure>
-<hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">添加装饰器函数后的调用：</span><br><span class="line"></span><br><span class="line">         参数x                参数x</span><br><span class="line">    ===========&gt;          ===========&gt;</span><br><span class="line">用户             装饰器函数b             函数a</span><br><span class="line">    &lt;===========          &lt;=========== </span><br><span class="line">        返回值r               返回值r</span><br></pre></td></tr></table></figure>
-<hr>
-<p><strong>传参的*args 现象解释：</strong><br>接收就聚合<br>调用就打散</p>
-<p>Oldboy 9s day11</p>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
-
-      
-    </footer>
-    <hr class="entry-footer-hr">
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
 
 
   <nav id="page-nav">
@@ -673,6 +664,18 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2018/07/07/迅雷U享版ThunderVIP-破解补丁/">迅雷U享版ThunderVIP(破解补丁)</a></h6>
+              <span>七月 7, 2018</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2018/07/06/Python之for循环套生成器表达式/">Python之for循环套生成器表达式</a></h6>
               <span>七月 6, 2018</span>
             </div>
@@ -727,18 +730,6 @@
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2018/07/05/Python装饰器之反向‘QA’/">Python装饰器之反向&#39;QA&#39;</a></h6>
-              <span>七月 5, 2018</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -751,7 +742,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rust/">Rust</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web前端/">web前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日记/">日记</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网页收藏/">网页收藏</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计划/">计划</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置/">配置</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/闲/">闲</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rust/">Rust</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web前端/">web前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日记/">日记</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网页收藏/">网页收藏</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计划/">计划</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置/">配置</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/闲/">闲</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -761,7 +752,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/web前端/" style="font-size: 10px;">web前端</a> <a href="/tags/日记/" style="font-size: 12px;">日记</a> <a href="/tags/网页收藏/" style="font-size: 14px;">网页收藏</a> <a href="/tags/计划/" style="font-size: 12px;">计划</a> <a href="/tags/配置/" style="font-size: 18px;">配置</a> <a href="/tags/闲/" style="font-size: 10px;">闲</a>
+      <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/web前端/" style="font-size: 10px;">web前端</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/日记/" style="font-size: 12px;">日记</a> <a href="/tags/网页收藏/" style="font-size: 14px;">网页收藏</a> <a href="/tags/计划/" style="font-size: 12px;">计划</a> <a href="/tags/配置/" style="font-size: 18px;">配置</a> <a href="/tags/闲/" style="font-size: 10px;">闲</a>
     </div>
   </div>
 
@@ -771,7 +762,7 @@
     <h3 class="widget-title">归档</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">12</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">12</span></li></ul>
     </div>
   </div>
 
