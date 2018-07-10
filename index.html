@@ -102,6 +102,238 @@
         
           <section id="main">
   
+    <article id="post-Mysql数据库初识"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+    <div class="article-meta">
+      
+	<a href="/2018/07/10/Mysql数据库初识/" class="article-date">
+	  <time datetime="2018-07-10T13:56:02.021Z" itemprop="datePublished">七月 10, 2018</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: Mysql数据库初识<br>date: 2018-07-10 21:56:01</p>
+<h2 id="tags-mysql"><a href="#tags-mysql" class="headerlink" title="tags: [mysql]"></a>tags: [mysql]</h2><p>MySQL</p>
+<pre><code>单机程序（自己DB）
+
+单机程序（公用DB）
+
+MySQL：是用于管理文件的一个软件
+    - 服务端软件
+        - socket服务端
+        - 本地文件操作
+        - 解析指令【SQL语句】
+    - 客户端软件（各种各样）
+        - socket客户端
+        - 发送指令
+        - 解析指令【SQL语句】
+
+    PS:
+        - DBMS数据库管理系统
+        - SQL语句
+
+技能：
+    - 安装 服务端和客户端
+    - 连接
+    - 学习SQL语句规则；指示服务端做任意操作
+
+
+其他类似软件：
+    关系型数据库：sqllite,db2,oracle,access,sql server MySQL
+    非关系型数据库：MongoDB,redis
+</code></pre><ol>
+<li><p>MySQL安装</p>
+<p> Windows:</p>
+<pre><code>可执行文件
+    点点点
+压缩包
+    放置任意目录
+    初始化
+        服务端：E:\wupeiqi\mysql-5.7.16-winx64\mysql-5.7.16-winx64\bin\mysqld --initialize-insecure
+                # 用户名 root 密码：空
+    启动服务端：
+        E:\wupeiqi\mysql-5.7.16-winx64\mysql-5.7.16-winx64\bin\mysqld\mysqld
+
+    客户端连接：
+        E:\wupeiqi\mysql-5.7.16-winx64\mysql-5.7.16-winx64\bin\mysqld\mysql -u root -p 
+
+        发送指令：
+            show databases;
+            create database db1;
+
+    环境变量的配置：
+        E:\wupeiqi\mysql-5.7.16-winx64\mysql-5.7.16-winx64\bin
+        mysqld
+
+    windows服务：
+        E:\wupeiqi\mysql-5.7.16-winx64\mysql-5.7.16-winx64\bin\mysqld --install
+        net start MySQL
+
+        E:\wupeiqi\mysql-5.7.16-winx64\mysql-5.7.16-winx64\bin\mysqld --remove
+
+        net start MySQL
+        net stop MySQL
+</code></pre></li>
+<li><p>关于连接</p>
+<p> 文件夹【数据库】</p>
+<pre><code>文件【表】
+    数据行【行】
+    数据行
+    数据行
+</code></pre><p> 连接：</p>
+<pre><code>默认：用户root
+</code></pre></li>
+</ol>
+<pre><code>show databases;
+
+use 数据库名称;
+
+show tables;
+
+select * from 表名;
+
+select name,age,id from 表名;
+
+mysql数据库user表
+use mysql;
+select user,host from user;
+
+
+创建用户：
+      create user &apos;waa&apos;@&apos;192.168.1.1&apos; identified by &apos;123123&apos;;
+      create user &apos;waa&apos;@&apos;192.168.1.%&apos; identified by &apos;123123&apos;;
+      create user &apos;waa&apos;@&apos;%&apos; identified by &apos;123123&apos;;
+授权：
+      权限  人
+
+      grant select,insert,update  on db1.t1 to &apos;waa&apos;@&apos;%&apos;;
+      grant all privileges  on db1.t1 to &apos;waa&apos;@&apos;%&apos;;
+
+      revoke all privileges on db1.t1 from &apos;waa&apos;@&apos;%&apos;;
+
+DBA: 用户名密码
+</code></pre><ol start="3">
+<li><p>学习SQL语句规则</p>
+<p> 操作文件夹</p>
+<pre><code>create database db2;
+create database db2 default charset utf8; *****
+show databases;
+drop database db2;
+</code></pre><p> 操作文件</p>
+<pre><code>show tables;
+create table t1(id int,name char(10)) default charset=utf8;
+create table t1(id int,name char(10))engine=innodb default charset=utf8;
+create table t3(id int auto_increment,name char(10))engine=innodb default charset=utf8;  *****
+
+create table t1(
+    列名 类型 null,
+    列名 类型 not null,
+    列名 类型 not null auto_increment primary key,
+    id int,
+    name char(10)
+)engine=innodb default charset=utf8;
+    # innodb 支持事务，原子性操作
+    # myisam myisam
+
+    auto_increment 表示：自增
+    primary key：  表示 约束(不能重复且不能为空); 加速查找
+    not null: 是否为空
+    数据类型：
+
+        数字：
+            tinyint
+            int
+            bigint
+
+            FLOAT
+                0.00000100000123000123001230123
+            DOUBLE
+                0.00000000000000000000100000123000123001230123
+                0.00000100000123000000000000000
+            decimal
+                0.1
+
+        字符串：
+            char(10)      速度快()
+                root      
+                root     
+            varchar(10)   节省空间
+                root
+            PS: 创建数据表定长列往前放
+
+            text
+
+            上传文件： 
+                文件存硬盘
+                db存路径
+        时间类型
+            DATETIME
+
+        enum
+        set
+</code></pre></li>
+</ol>
+<pre><code>        create table t1(
+            id int signed not null auto_increment primary key,
+            num decimal(10,5),
+            name char(10)
+        )engine=innodb default charset=utf8;
+
+    清空表：
+        delete from t1;
+        truncate table t1;
+    删除表：
+        drop table t1;
+
+操作文件中内容
+    插入数据：
+        insert into t1(id,name) values(1,&apos;waa&apos;);
+    删除：
+        delete from t1 where id&lt;6
+    修改：
+        update t1 set age=18;
+        update t1 set age=18 where age=17;
+    查看数据：
+        select * from t1;
+
+外键：
+
+    create table userinfo(
+        uid int auto_increment primary key,
+        name varchar(32),
+        department_id int,
+        xx_id int,
+        constraint fk_user_depar foreign key (department_id) references color(id)
+    )engine=innodb default charset=utf8;
+
+    create table department(
+        id bigint auto_increment primary key,
+        title char(15)
+    )engine=innodb default charset=utf8;
+</code></pre><p>今日内容参考博客：<br>    <a href="http://www.cnblogs.com/wupeiqi/articles/5713315.html" target="_blank" rel="noopener">http://www.cnblogs.com/wupeiqi/articles/5713315.html</a><br>作业：<br>    <a href="http://images2015.cnblogs.com/blog/425762/201608/425762-20160803224643778-2071849037.png" target="_blank" rel="noopener">http://images2015.cnblogs.com/blog/425762/201608/425762-20160803224643778-2071849037.png</a><br>    <a href="http://www.cnblogs.com/wupeiqi/articles/5729934.html" target="_blank" rel="noopener">http://www.cnblogs.com/wupeiqi/articles/5729934.html</a></p>
+<p>Oldboy Day57</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-web开发杂记"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -333,11 +565,7 @@ form表单提交数据的几个注意事项:
 </ol>
 </li>
 </ol>
-<p>作业:</p>
-<pre><code>1. 整理博客
-2. 预习
-3. 整理购物商城结构
-</code></pre><p>购物商城Html结构示例:</p>
+<p>购物商城Html结构示例:</p>
 <p>行 列表1  列表2</p>
 <p>行 图片 列表 搜索</p>
 <p>django 框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;Djwebpro URL Configuration</span><br><span class="line"></span><br><span class="line">The `urlpatterns` list routes URLs to views. For more information please see:</span><br><span class="line">    https://docs.djangoproject.com/en/1.11/topics/http/urls/</span><br><span class="line">Examples:</span><br><span class="line">Function views</span><br><span class="line">    1. Add an import:  from my_app import views</span><br><span class="line">    2. Add a URL to urlpatterns:  url(r&apos;^$&apos;, views.home, name=&apos;home&apos;)</span><br><span class="line">Class-based views</span><br><span class="line">    1. Add an import:  from other_app.views import Home</span><br><span class="line">    2. Add a URL to urlpatterns:  url(r&apos;^$&apos;, Home.as_view(), name=&apos;home&apos;)</span><br><span class="line">Including another URLconf</span><br><span class="line">    1. Import the include() function: from django.conf.urls import url, include</span><br><span class="line">    2. Add a URL to urlpatterns:  url(r&apos;^blog/&apos;, include(&apos;blog.urls&apos;))</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">from django.conf.urls import url</span><br><span class="line">from django.contrib import admin</span><br><span class="line"></span><br><span class="line">from django.shortcuts import HttpResponse,render</span><br><span class="line"></span><br><span class="line">def nene(request):</span><br><span class="line">    # request参数保存了所有和用户浏览器请求相关的数据</span><br><span class="line">    return HttpResponse(&apos;good job nene&apos;)</span><br><span class="line"></span><br><span class="line">def wahuajiao(request):</span><br><span class="line">    # request参数保存了所有和用户浏览器请求相关的数据</span><br><span class="line">    return HttpResponse(&apos;my name is huajiao&apos;)</span><br><span class="line"></span><br><span class="line">def F404(request):</span><br><span class="line">    # request参数保存了所有和用户浏览器请求相关的数据</span><br><span class="line">    # return HttpResponse(&apos;Oh~yeeee~！404！&apos;)</span><br><span class="line">    return render(request, &apos;404.html&apos;)</span><br><span class="line"></span><br><span class="line">def upload(request):</span><br><span class="line">    # request参数保存了所有和用户浏览器请求相关的数据</span><br><span class="line">    # return HttpResponse(&apos;Oh~yeeee~！404！&apos;)</span><br><span class="line">    print(&apos;收到的内容&apos;,request.GET)</span><br><span class="line">    return HttpResponse(&apos;成功提交&apos;)</span><br><span class="line"></span><br><span class="line"># 保存了路径和函数的对应关系</span><br><span class="line">urlpatterns = [</span><br><span class="line">    url(r&apos;^wahuajiao/&apos;, wahuajiao),</span><br><span class="line">    url(r&apos;^nene/&apos;, nene),</span><br><span class="line">    url(r&apos;^404/&apos;, F404),</span><br><span class="line">    url(r&apos;^upload/&apos;, upload),</span><br><span class="line">]</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
@@ -592,7 +820,7 @@ form表单提交数据的几个注意事项:
 
           
             <div class="entry-thumbnail">
-              <a href="/2018/07/06/Demon哥分享整理2017-2018/"><img src="http://lorempixel.com/750/450/city/5" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+              <a href="/2018/07/06/Demon哥分享整理2017-2018/"><img src="http://lorempixel.com/750/450/city/2" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
             </div>
           
           <div class="entry-summary">
@@ -769,53 +997,6 @@ form表单提交数据的几个注意事项:
 <!-- Table of Contents -->
 
   
-    <article id="post-Python监听文件输入"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/07/04/Python监听文件输入/">Python监听文件输入</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2018/07/04/Python监听文件输入/" class="article-date">
-	  <time datetime="2018-07-04T15:57:56.000Z" itemprop="datePublished">七月 4, 2018</time>
-	</a>
-
-       
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def look(filename):</span><br><span class="line">    f = open(&apos;filename&apos;, encoding=&apos;utf-8&apos;)</span><br><span class="line">    while True:</span><br><span class="line">        line = f.readline()</span><br><span class="line">        if line.strip():</span><br><span class="line">            yield line.strip()</span><br><span class="line"></span><br><span class="line">g = look(&apos;file&apos;)</span><br><span class="line">for i in g:</span><br><span class="line">    print(&apos;xxx:&apos;,i)</span><br></pre></td></tr></table></figure>
-<p>骚操作</p>
-<p>oldboy 9s day12</p>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
-
-      
-    </footer>
-    <hr class="entry-footer-hr">
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
 
 
   <nav id="page-nav">
@@ -883,6 +1064,18 @@ form表单提交数据的几个注意事项:
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2018/07/10/Mysql数据库初识/">(no title)</a></h6>
+              <span>七月 10, 2018</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2018/07/09/web开发杂记/">web开发杂记</a></h6>
               <span>七月 9, 2018</span>
             </div>
@@ -937,18 +1130,6 @@ form表单提交数据的几个注意事项:
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2018/07/06/Demon哥分享整理2017-2018/">Demon哥分享整理2017-2018</a></h6>
-              <span>七月 6, 2018</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -981,7 +1162,7 @@ form表单提交数据的几个注意事项:
     <h3 class="widget-title">归档</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">12</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">12</span></li></ul>
     </div>
   </div>
 
