@@ -102,6 +102,60 @@
         
           <section id="main">
   
+    <article id="post-PytPython迭代器初识"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/07/06/PytPython迭代器初识/">PytPython迭代器和生成器初识</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/07/06/PytPython迭代器初识/" class="article-date">
+	  <time datetime="2018-07-06T07:39:57.000Z" itemprop="datePublished">七月 6, 2018</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>迭代器</p>
+<p>双下方法：很少直接调用的方法。 一般情况下，是通过其他语法触发的<br>可迭代的 —可迭代协议 含有<strong>iter</strong>的方法（’<strong>iter</strong>‘ in dir(数据)）<br>可迭代的一定可以被for循环<br>迭代器协议：含有<strong>iter</strong>和<strong>next</strong>方法<br>迭代器一定可以迭代，可迭代的不一定是迭代器，可迭代的通过调用iter()方法就能得到一个迭代器<br>迭代器的贴点：<br>    很方便使用，且只能取所有的数据取一次<br>    节省内存空间</p>
+<p>生成器</p>
+<p>生成器的本质就是迭代器<br>生成器的表现形式<br>    生成器函数<br>    生成器表达式<br>生成器函数<br>    含有yield关键字的函数就是生成器函数<br>    特点：<br>        调用函数的时候 函数不执行，返回一个生成器<br>        每次调用next方法的时候 会取到一个值<br>        直到取完最后一个，再执行next会报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def generator():</span><br><span class="line">    for i in range(2000000)</span><br><span class="line">        yield &quot;whoami%s&quot;%i</span><br><span class="line"></span><br><span class="line">g = generator()     #调用生成器函数得到一个生成器</span><br><span class="line">ret = g.__next__()        #每一次执行g.__next__就是从生成器中取值，预示着生成器函数中的代码继续执行</span><br><span class="line">print(ret)</span><br><span class="line">num = 0</span><br><span class="line">for i in g:</span><br><span class="line">    num += 1</span><br><span class="line">    if num &gt; 50:</span><br><span class="line">        break</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+<p>从生成器中取值的几个方法<br>    next<br>    for<br>    数据类型的强制转换↓<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def generator():</span><br><span class="line">    for i in range(2000000)</span><br><span class="line">        yield &quot;whoami%s&quot;%i</span><br><span class="line"></span><br><span class="line">g = generator()     #调用生成器函数得到一个生成器</span><br><span class="line">g.__next__()        #每一次执行g.__next__就是从生成器中取值，预示着生成器函数中的代码继续执行</span><br><span class="line">print(list(g))      #强转成list列表 但是占内存</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def generator()</span><br><span class="line">    print(123)</span><br><span class="line">    yield 1</span><br><span class="line">    print(456)</span><br><span class="line">    yield 2</span><br><span class="line"></span><br><span class="line">g = generator()</span><br><span class="line">ret = g.__next__()</span><br><span class="line">print(&apos;whoami&apos;, ret)</span><br><span class="line">ret = g.__next__()</span><br><span class="line">print(&apos;whoami&apos;, ret)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def generator()</span><br><span class="line">    print(123)</span><br><span class="line">    content = yield 1</span><br><span class="line">    print(&apos;&gt;&gt;&gt;&gt;&gt;&apos;, content)</span><br><span class="line">    print(456)</span><br><span class="line">    yield 2</span><br><span class="line"></span><br><span class="line">g = generator()</span><br><span class="line">ret = g.__next__()</span><br><span class="line">print(&apos;whoami&apos;, ret)</span><br><span class="line">ret = g.send(&apos;注意此处content&apos;)      #send的效果与__next__一样，send将str传给了上方因yield 1暂停处的content变量</span><br><span class="line">print(&apos;whoami&apos;, ret)</span><br></pre></td></tr></table></figure>
+<p>send()  获取下一个值的效果和<strong>next</strong>的效果基本一致<br>        只是在获取下一个值的时候，给上一个yield的位置传一个数据<br>        (作用是在执行下一个yield 2 之前传一个值到之前一个yield 1 之后)</p>
+<p>使用send()的注意事项<br>    第一次使用生成器的时候， 必须是用<strong>next</strong>获取下一个值<br>    最后一个yield是不能获取到send传来的外部值的，就是最后一个yield是结束语，用来支撑send()方法的调用。</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-Python装饰器之反向‘QA’"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -533,54 +587,6 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-Ubuntu14-04-下安装mysql"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/06/28/Ubuntu14-04-下安装mysql/">ubuntu14.04 下安装mysql</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2018/06/28/Ubuntu14-04-下安装mysql/" class="article-date">
-	  <time datetime="2018-06-28T15:39:38.000Z" itemprop="datePublished">六月 28, 2018</time>
-	</a>
-
-       
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server</span><br></pre></td></tr></table></figure></p>
-<p>2.测试是否安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps aux |grep mysql</span><br><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure></p>
-<p>3.允许远程访问设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># sudo service mysql stop</span><br><span class="line"></span><br><span class="line"># sudo vim /etc/mysql/my.conf</span><br><span class="line"></span><br><span class="line"># #注释 bind_address=127.0.0.1</span><br><span class="line"></span><br><span class="line"># 重启mysql：　sudo service mysql restart</span><br><span class="line"></span><br><span class="line"># 登录mysql：  mysql -u rot -p</span><br><span class="line"></span><br><span class="line"># 切换数据库 use mysql;</span><br><span class="line"></span><br><span class="line"># 允许现有用户的远程访问 update user set host=&apos;%&apos; where user=&apos;root&apos; and host =&apos;localhost&apos;;</span><br><span class="line"></span><br><span class="line"># 退出数据库，重启数据库 exit; sudo service mysql restart;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<p>4.数据库文件的迁移<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># sudo service mysql stop #迁移前必须停止mysql</span><br><span class="line"></span><br><span class="line"># 创建mysql 存放的目标文件夹 sudo /mnt/mysqldata</span><br><span class="line"></span><br><span class="line"># 修改所属用户和用户组  sudo chown -R mysql:mysql /mnt/mysqldata</span><br><span class="line"></span><br><span class="line"># 修改权限 sudo chmod -R 700 /mnt/mysqldata</span><br><span class="line"></span><br><span class="line"># 迁移文件 su root; cp -a /var/lib/mysql/* /mnt/mysqldata/</span><br><span class="line"></span><br><span class="line"># 修改配置文件 sudo vim /etc/mysql/my.conf</span><br><span class="line"></span><br><span class="line"># 　　　　　　　datadir = /mnt/mysqldata</span><br><span class="line"></span><br><span class="line"># 以上mysql 配置完毕，在ubuntu还有些敏感操作受到了 apparmor.d 的限制，mysql也受到了限制，</span><br><span class="line"></span><br><span class="line"># sudo vim /etc/apparmor.d/usr.sbin.mysqld</span><br><span class="line">···············</span><br><span class="line"># /var/lib/mysql/ r, </span><br><span class="line"># /var/lib/mysql/** rwk,</span><br><span class="line">···············</span><br><span class="line"># 重新启动apparmor 和mysql</span><br><span class="line"></span><br><span class="line"># sudo service apparmor reload</span><br><span class="line"></span><br><span class="line"># sudo service mysql start</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mysql/">Mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/配置/">配置</a></li></ul>
-
-      
-    </footer>
-    <hr class="entry-footer-hr">
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
 
 
   <nav id="page-nav">
@@ -648,6 +654,18 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2018/07/15/Python模块初识/">Python模块初识</a></h6>
+              <span>七月 15, 2018</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2018/07/14/Python的OS-system/">Python的OS.system</a></h6>
               <span>七月 14, 2018</span>
             </div>
@@ -702,18 +720,6 @@
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2018/07/06/Python之for循环套生成器表达式/">Python之for循环套生成器表达式</a></h6>
-              <span>七月 6, 2018</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -726,7 +732,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/">Mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rust/">Rust</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web前端/">web前端</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日记/">日记</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网页收藏/">网页收藏</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计划/">计划</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置/">配置</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/闲/">闲</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/">Mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rust/">Rust</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web前端/">web前端</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日记/">日记</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网页收藏/">网页收藏</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计划/">计划</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置/">配置</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/闲/">闲</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -746,7 +752,7 @@
     <h3 class="widget-title">归档</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">12</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">12</span></li></ul>
     </div>
   </div>
 
