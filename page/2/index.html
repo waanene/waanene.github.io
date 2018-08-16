@@ -102,6 +102,53 @@
         
           <section id="main">
   
+    <article id="post-Python生成器函数之移动平均值"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/07/06/Python生成器函数之移动平均值/">Python生成器函数之移动平均值</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/07/06/Python生成器函数之移动平均值/" class="article-date">
+	  <time datetime="2018-07-06T09:42:57.000Z" itemprop="datePublished">七月 6, 2018</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>生成器函数之移动平均值之骚操作</p>
+<p>平均值公式：<br>平均值=总量/个数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">def average():</span><br><span class="line">    sum = 0</span><br><span class="line">    count = 0</span><br><span class="line">    avg = 0</span><br><span class="line">    while True:</span><br><span class="line">        num = yield avg</span><br><span class="line">        sum += num</span><br><span class="line">        count += 1</span><br><span class="line">        avg = sum / count</span><br><span class="line"></span><br><span class="line">avg_g = average()</span><br><span class="line">avg_g.__next__()</span><br><span class="line">print(avg_g.send(10))</span><br><span class="line">avg_g.__next__()</span><br><span class="line">print(avg_g.send(20))</span><br><span class="line">avg_g.__next__()</span><br><span class="line">print(avg_g.send(30))</span><br></pre></td></tr></table></figure></p>
+<p>为了节省上方代码结尾处的<strong>next</strong>方法的重调用，通过添加装饰器来省去重复过程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">def init(func):</span><br><span class="line">    def inner(*args,**kwargs):</span><br><span class="line">        g = func(*args,**kwargs)</span><br><span class="line">        g.__next__()        #此处优化上方代码结尾__next__方法的重复调用</span><br><span class="line">        return g</span><br><span class="line">    return inner</span><br><span class="line"></span><br><span class="line">@wapps</span><br><span class="line">def average():</span><br><span class="line">    sum = 0</span><br><span class="line">    count = 0</span><br><span class="line">    avg = 0</span><br><span class="line">    while True:</span><br><span class="line">        num = yield avg</span><br><span class="line">        sum += num</span><br><span class="line">        count += 1</span><br><span class="line">        avg = sum / count</span><br><span class="line"></span><br><span class="line">avg_g = average()</span><br><span class="line">#avg_g.__next__() #在装饰器中执行了__next__方法</span><br><span class="line">print(avg_g.send(10))</span><br><span class="line">print(avg_g.send(20))</span><br><span class="line">print(avg_g.send(30))</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-PytPython迭代器初识"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -539,59 +586,11 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-开博第二天小日记"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/06/28/开博第二天小日记/">开博第二天小日记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2018/06/28/开博第二天小日记/" class="article-date">
-	  <time datetime="2018-06-28T15:47:20.000Z" itemprop="datePublished">六月 28, 2018</time>
-	</a>
-
-       
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>老男孩9s看到day3<br>明天继续看day4</p>
-<p>JavaScript看到这里了<br><a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001434499190108eec0bdf14e704a09935cd112e501e31a000#0" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001434499190108eec0bdf14e704a09935cd112e501e31a000#0</a></p>
-<p>然后晚上Ubuntu14.0服务器上线了 环境还需要慢慢配置<br>python虚拟环境已经配置好了<br>MySQL-server装好了没配置完 只能本地访问 抽空弄外连</p>
-<p>睡觉睡觉 狗命要紧  </p>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日记/">日记</a></li></ul>
-
-      
-    </footer>
-    <hr class="entry-footer-hr">
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
   </nav>
 
 </section>
@@ -654,6 +653,18 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2018/08/16/3词练习1/">3词练习1</a></h6>
+              <span>八月 16, 2018</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2018/07/15/Python模块初识/">Python模块初识</a></h6>
               <span>七月 15, 2018</span>
             </div>
@@ -708,18 +719,6 @@
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2018/07/07/迅雷U享版ThunderVIP-破解补丁/">迅雷U享版ThunderVIP(破解补丁)</a></h6>
-              <span>七月 7, 2018</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -732,7 +731,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/">Mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rust/">Rust</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web前端/">web前端</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日记/">日记</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网页收藏/">网页收藏</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计划/">计划</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置/">配置</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/闲/">闲</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/">Mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rust/">Rust</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web前端/">web前端</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日记/">日记</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网页收藏/">网页收藏</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计划/">计划</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置/">配置</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/闲/">闲</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -742,7 +741,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/Mysql/" style="font-size: 12px;">Mysql</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/web前端/" style="font-size: 12px;">web前端</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/日记/" style="font-size: 14px;">日记</a> <a href="/tags/网页收藏/" style="font-size: 14px;">网页收藏</a> <a href="/tags/计划/" style="font-size: 12px;">计划</a> <a href="/tags/配置/" style="font-size: 18px;">配置</a> <a href="/tags/闲/" style="font-size: 10px;">闲</a>
+      <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/Mysql/" style="font-size: 12px;">Mysql</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/web前端/" style="font-size: 12px;">web前端</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/日记/" style="font-size: 14px;">日记</a> <a href="/tags/网页收藏/" style="font-size: 14px;">网页收藏</a> <a href="/tags/计划/" style="font-size: 12px;">计划</a> <a href="/tags/配置/" style="font-size: 18px;">配置</a> <a href="/tags/闲/" style="font-size: 12px;">闲</a>
     </div>
   </div>
 
@@ -752,7 +751,7 @@
     <h3 class="widget-title">归档</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">12</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">12</span></li></ul>
     </div>
   </div>
 
